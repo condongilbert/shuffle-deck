@@ -12,15 +12,18 @@ def shuffle_deck(deck):
     return shuffled
 
 def visualize_deck(deck, title='Shuffled Deck'):
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(14, 4))
+    plt.xlim(-1, 13)
+    plt.ylim(-1, 4)
     plt.axis('off')
+    
     for i, card in enumerate(deck):
         x = i % 13
-        y = 3 - (i // 13)
-        plt.text(x, y, card, fontsize=9, ha='center', va='center', bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
+        y = 3 - (i // 13)  # Invert y to have Spades at bottom
+        plt.text(x, y, card, fontsize=8, ha='center', va='center',
+                 bbox=dict(boxstyle="round,pad=0.3", edgecolor='black', facecolor='white'))
 
-    plt.title(title, fontsize=16)
-    plt.tight_layout()
+    plt.title(title, fontsize=14)
     plt.show()
 
 # Shuffle and visualize
